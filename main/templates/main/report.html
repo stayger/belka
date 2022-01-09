@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Отчеты
+{% endblock %}
+{% block content %}
+    {{ sss }}
+    <form method="post" >
+    {% csrf_token %}
+    <select name="month">
+        {% for m in months %}
+              <option>{{ m }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="btn btn-success">-></button>
+    </form>
+    <div>За {{ mm }} месяц</div>
+<div class="container">
+    <div class="row">
+        <div class="col"> ---</div><div class="col">Min</div><div class="col">Max</div><div class="col">Avg</div></div>
+    <div class="row">
+        <div class="col">Железо</div>
+        <div class="col"> {{ items.fe__min }}</div>
+        <div class="col"> {{ items.fe__max }}</div>
+        <div class="col"> {{ items.fe__avg }}</div>
+</div>
+            <div class="row">
+        <div class="col">Кремний</div>
+        <div class="col"> {{ items.si__min }}</div>
+        <div class="col"> {{ items.si__max }}</div>
+        <div class="col"> {{ items.si__avg }}</div>
+</div>
+            <div class="row">
+        <div class="col">Алюминий</div>
+        <div class="col"> {{ items.al__min }}</div>
+        <div class="col"> {{ items.al__max }}</div>
+        <div class="col"> {{ items.al__avg }}</div>
+</div>
+                            <div class="row">
+        <div class="col">Кальций</div>
+        <div class="col"> {{ items.ca__min }}</div>
+        <div class="col"> {{ items.ca__max }}</div>
+        <div class="col"> {{ items.ca__avg }}</div>
+            </div><div class="row">
+        <div class="col">Сера</div>
+        <div class="col"> {{ items.s__min }}</div>
+        <div class="col"> {{ items.s__max }}</div>
+        <div class="col"> {{ items.s__avg }}</div>
+            </div></div>
+{% endblock %}
